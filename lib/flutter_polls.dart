@@ -273,23 +273,31 @@ class FlutterPolls extends HookWidget {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 14),
                               child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Flexible(child: pollOption.title),
-                                  const SizedBox(width: 10),
-                                  if (votedOption.value != null &&
-                                      votedOption.value?.id == pollOption.id)
-                                    votedCheckmark ??
-                                        const Icon(
-                                          Icons.check_circle_outline_rounded,
-                                          color: Colors.black,
-                                          size: 16,
-                                        ),
-                                  Text(
-                                    totalVotes.value == 0
-                                        ? "0 $votesText"
-                                        : '${(pollOption.votes / totalVotes.value * 100).toStringAsFixed(1)}%',
-                                    style: votedPercentageTextStyle,
-                                  ),
+                                  Row(
+                                    children: [
+                                      const SizedBox(width: 10),
+                                      if (votedOption.value != null &&
+                                          votedOption.value?.id ==
+                                              pollOption.id)
+                                        votedCheckmark ??
+                                            const Icon(
+                                              Icons
+                                                  .check_circle_outline_rounded,
+                                              color: Colors.black,
+                                              size: 16,
+                                            ),
+                                      Text(
+                                        totalVotes.value == 0
+                                            ? "0 $votesText"
+                                            : '${(pollOption.votes / totalVotes.value * 100).toStringAsFixed(1)}%',
+                                        style: votedPercentageTextStyle,
+                                      ),
+                                    ],
+                                  )
                                 ],
                               ),
                             ),

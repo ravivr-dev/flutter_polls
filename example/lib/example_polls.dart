@@ -66,14 +66,15 @@ class _ExamplePollsState extends State<ExamplePolls> {
                 pollOptions: List<PollOption>.from(
                   poll['options'].map(
                     (option) {
-                      // final titleMaxLength = splitText(option['title'].trim());
-                      // print('${option['title']} $titleMaxLength');
+                      final titleMaxLength = splitText(option['title'].trim());
+                      print('${option['title']} $titleMaxLength');
 
                       var a = PollOption(
+                        optionMaxLength: titleMaxLength,
                         id: option['id'],
                         title: Text(
                           option['title'],
-                          maxLines: 1,
+                          maxLines: titleMaxLength,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                             fontSize: 14,
