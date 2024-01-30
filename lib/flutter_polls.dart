@@ -250,7 +250,11 @@ class FlutterPolls extends HookWidget {
                           ),
                           child: LinearPercentIndicator(
                             width: pollOptionsWidth,
-                            lineHeight: pollOptionsHeight!,
+                            lineHeight: pollOption.optionMaxLength == 1
+                                ? pollOptionsHeight!
+                                : 28 *
+                                    (pollOption.optionMaxLength ?? 1)
+                                        .floorToDouble(),
                             barRadius: votedPollOptionsRadius ??
                                 const Radius.circular(8),
                             padding: EdgeInsets.zero,
