@@ -266,12 +266,11 @@ class FlutterPolls extends HookWidget {
                                     : votedProgressColor,
                             center: Container(
                               width: double.infinity,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 14,
-                              ),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 14),
                               child: Row(
                                 children: [
-                                  pollOption.title,
+                                  Flexible(child: pollOption.title),
                                   const SizedBox(width: 10),
                                   if (votedOption.value != null &&
                                       votedOption.value?.id == pollOption.id)
@@ -281,7 +280,6 @@ class FlutterPolls extends HookWidget {
                                           color: Colors.black,
                                           size: 16,
                                         ),
-                                  const Spacer(),
                                   Text(
                                     totalVotes.value == 0
                                         ? "0 $votesText"
@@ -322,13 +320,13 @@ class FlutterPolls extends HookWidget {
                             },
                             splashColor: pollOptionsSplashColor,
                             borderRadius: pollOptionsBorderRadius ??
-                                BorderRadius.circular(
-                                  8,
-                                ),
+                                BorderRadius.circular(8),
                             child: Container(
-                              height: pollOptionsHeight,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 14,
+                                vertical: 10,
+                              ),
                               width: pollOptionsWidth,
-                              padding: EdgeInsets.zero,
                               decoration: BoxDecoration(
                                 color: votedOption.value?.id == pollOption.id
                                     ? voteInProgressColor
@@ -339,9 +337,7 @@ class FlutterPolls extends HookWidget {
                                       width: 1,
                                     ),
                                 borderRadius: pollOptionsBorderRadius ??
-                                    BorderRadius.circular(
-                                      8,
-                                    ),
+                                    BorderRadius.circular(8),
                               ),
                               child: Center(
                                 child: isLoading.value &&
@@ -387,11 +383,13 @@ class FlutterPolls extends HookWidget {
 class PollOption {
   PollOption({
     this.id,
+    this.optionMaxLength,
     required this.title,
     required this.votes,
   });
 
   final int? id;
   final Widget title;
+  final int? optionMaxLength;
   int votes;
 }

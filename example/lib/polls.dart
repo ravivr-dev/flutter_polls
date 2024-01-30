@@ -3,11 +3,12 @@ List polls() => [
         'id': 1,
         'question':
             'Is Flutter the best framework for building cross-platform applications?',
-        'end_date': DateTime(2022, 5, 21),
+        'end_date': DateTime(2024, 5, 21),
         'options': [
           {
             'id': 1,
-            'title': 'Absolutely',
+            'title':
+                'I tried to run my application (front-end developed in Java Swing, server developed with EJB deployed on Wild deployed on Wild deployed on Wilddeployed on Wilddeployed on Wilddeployed on Wild',
             'votes': 40,
           },
           {
